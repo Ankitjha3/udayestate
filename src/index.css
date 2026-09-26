@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Corporate PropTech Navy */
+  --color-primary-950: #0f172a;
+  --color-primary-900: #1e2f50;
+  --color-primary-800: #1E3A8A;
+  --color-primary-700: #234e70;  /* Housiey/Corporate Navy */
+  --color-primary-600: #2b628c;
+  --color-primary-100: #ecf1f8;
+  --color-primary-50:  #f4f7fb;
+
+  /* Trust Green */
+  --color-emerald-700: #0b6b36;
+  --color-emerald-600: #0e8744;  /* Prop-tech Trust Green */
+  --color-emerald-500: #059669;
+  --color-emerald-50:  #eef8f2;
+
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
+
+  --shadow-card:       0 2px 12px 0 rgba(15, 23, 42, 0.06);
+  --shadow-card-hover: 0 10px 25px -3px rgba(15, 23, 42, 0.12), 0 4px 6px -4px rgba(15, 23, 42, 0.05);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    /* prevent any child from creating horizontal scroll */
+    width: 100%;
+    max-width: 100%;
+  }
+  /* box-sizing on everything prevents padding/border overflow */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    min-width: 0;
+  }
+}
+
+/* ── Hide the right-side scrollbar on mobile while keeping scroll functional ── */
+@media (max-width: 768px) {
+  html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  html::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/mobile */
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ─── Corporate PropTech CTA Button ─────────────────────────────────────────
+   Replaces the old luxury "gold-gradient-bg" class everywhere in the codebase.
+   Uses the trust-green → navy-green corporate gradient.
+*/
+.cta-primary-bg {
+  background: linear-gradient(135deg, #059669 0%, #0e8744 100%);
+  color: #ffffff;
+}
+.cta-primary-bg:hover {
+  background: linear-gradient(135deg, #0e8744 0%, #0b6b36 100%);
+}
+
+/* Kept as alias so any leftover references don't break render */
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #059669 0%, #0e8744 100%);
+  color: #ffffff;
+}
+.gold-gradient-bg:hover {
+  background: linear-gradient(135deg, #0e8744 0%, #0b6b36 100%);
+}
+
+/* Subtle clean badge styling */
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
